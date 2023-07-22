@@ -1,11 +1,11 @@
-import '../../App.css';
-const Comment =({name,email,onClick})=>{
-    return(
-        <div className="card" onClick={onClick}>
-            <p>{name}</p>
-            <p>{email}</p>
-        </div>
-    )
+
+function Comment({ name, email, onClick }) {
+  return (
+    <div className="comment" onClick={onClick}>
+      <h3>{name}</h3>
+      <p>{email}</p>
+    </div>
+  );
 }
 
 export default Comment;

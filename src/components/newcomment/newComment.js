@@ -1,36 +1,46 @@
-import { useState } from 'react';
-import '../../App.css';
-import axios from 'axios';
-const NewComment =()=>{
 
-const [comment ,setComment]=useState({
-    name:"",
-    email:"",
-    content:"",
-})
+import React, { useState } from "react";
+import { addNewComment } from "../../services/postCommentServices";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+function NewComment() {
+  const [newComment, setNewComment] = useState({
+    name: "",
+    email: "",
+    body: "",
+  });
 
+  const changeHandler = (e) => {
+    setNewComment({ ...newComment, [e.target.name]: e.target.value });
+  };
 
-const changeHandler=(e)=>{
-    setComment({...comment,[e.target.name]:e.target.value})
-}
+  const history = useHistory();
+  const postCommentHandler = async () => {
+    await addNewComment(newComment).then();
+    history.push("/");
+  };
 
-const postHandler=()=>{
-axios.post("https://jsonplaceholder.typicode.com/comments",comment)
-.then((res)=>console.log(res.data))
-.catch()
-}
-    return(
-        <div className="card">
-            <label>name</label>
-          <input type="text" onChange={changeHandler}/>
-          <label>email</label>
-          <input type="text" onChange={changeHandler}/>
-          <label>body</label>
-          <input type="text" onChange={changeHandler}/>
-          <button onClick={postHandler}>add new comment</button>
+  return (
+    <div className="container">
+      <div className="new-comment">
+        <div className="new-comment__info new-comment__name">
+          <label>name</label>
+          <input type="text" name="name" onChange={changeHandler} />
         </div>
-    )
+        <div className="new-comment__info">
+          <label>email</label>
+          <input type="email" name="email" onChange={changeHandler} />
+        </div>
+        <div>
+          <label>content</label>
+          <textarea name="body" onChange={changeHandler} />
+        </div>
+        <div>
+          <button onClick={postCommentHandler}>Add New Comment</button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default NewComment;

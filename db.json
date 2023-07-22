@@ -1,0 +1,16 @@
+{
+  "comments": [
+    {
+      "id": 1,
+      "name": "maedeh",
+      "email": "maedeh@gmail.com",
+      "body": "some comment"
+    },
+    {
+      "name": "erfan",
+      "email": "erfan@gmail.com",
+      "body": "ddd",
+      "id": 3
+    }
+  ]
+}
