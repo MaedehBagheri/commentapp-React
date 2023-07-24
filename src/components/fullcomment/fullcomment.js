@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { deleteComment } from "../../services/delteCommentServices";
 import getOneComment from "../../services/getCommentService";
-
+import "./fullcomment.css"
 
 function FullComment({ match }) {
   const commentId = match.params.id;
@@ -28,7 +28,7 @@ function FullComment({ match }) {
 
   return (
     <div className="container">
-      <div className="full-comment">
+      <div className="full">
         {comment ? (
           <>
             <h2>{comment.name}</h2>

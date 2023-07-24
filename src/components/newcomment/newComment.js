@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { addNewComment } from "../../services/postCommentServices";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-
+import "./newComment.css"
 function NewComment() {
   const [newComment, setNewComment] = useState({
     name: "",
@@ -22,7 +22,7 @@ function NewComment() {
 
   return (
     <div className="container">
-      <div className="new-comment">
+      <div className="newcomment">
         <div className="new-comment__info new-comment__name">
           <label>name</label>
           <input type="text" name="name" onChange={changeHandler} />

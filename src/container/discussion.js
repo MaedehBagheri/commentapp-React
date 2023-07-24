@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Comment from "./../components/comment/comment";
 import { getAllComments } from "../services/getAllComment";
 import { Link } from "react-router-dom";
-
+import "./discussion.css"
 function Discussion() {
   const [comments, setComments] = useState(null);
   useEffect(() => {
@@ -18,7 +18,7 @@ function Discussion() {
 
   const renderComments = () => {
     return (
-      <>
+      <div className="comments">
         {comments ? (
           comments.map((c) => (
             <Link to={`/full-comment/${c.id}`} key={c.id}>
@@ -28,7 +28,7 @@ function Discussion() {
         ) : (
           <p>Loading...</p>
         )}
-      </>
+      </div>
     );
   };
   return (

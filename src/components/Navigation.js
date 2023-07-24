@@ -1,13 +1,15 @@
 
 import { NavLink, withRouter } from "react-router-dom";
+import "./Navigation.css"
 function Navigation() {
   const items = [
     { name: "Home", to: "/", exact: true },
     { name: "New Comment", to: "/new-comment" },
   ];
   return (
-    <nav>
-      <ul>
+ <header  >
+     <nav>
+      <ul className="navbar">
         {items.map((item) => {
           return (
             <li key={item.name}>
@@ -23,6 +25,7 @@ function Navigation() {
         })}
       </ul>
     </nav>
+ </header>
   );
 }
 

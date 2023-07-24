@@ -1,4 +1,4 @@
-
+import "./comment.css"
 function Comment({ name, email, onClick }) {
   return (
     <div className="comment" onClick={onClick}>
